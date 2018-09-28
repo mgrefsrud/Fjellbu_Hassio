@@ -1,0 +1,17 @@
+- alias: Scene selection Normal
+  trigger:
+    platform: state
+    entity_id: input_select.scene_status_dropdown
+    to: "Normal"
+  action:
+  - service: scene.turn_on
+    entity_id: scene.normal
+
+- alias: Scene selection Tom
+  trigger:
+    platform: state
+    entity_id: input_select.scene_status_dropdown
+    to: "Tom"
+  action:
+  - service: scene.turn_on
+    entity_id: scene.tom

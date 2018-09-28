@@ -1,0 +1,14 @@
+scene_status_dropdown:
+  name: Aktiv scene
+  options:
+    - Normal
+    - Tom
+  initial: Normal
+  icon: mdi:home
+#  icon_template: >
+#    {% if is_state('input_select.scene_status_dropdown', 'Normal') %}
+#      mdi:home
+#    {% else %}
+#      mdi:home-outline
+#    {% endif %}  
+  

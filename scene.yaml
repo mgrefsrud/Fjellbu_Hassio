@@ -1,0 +1,14 @@
+  - name: Normal
+    entities:
+      switch.refrigerator: on
+      switch.boiler: on
+      input_select.scene_status_dropdown:
+        option: Normal
+
+  - name: Tom
+    entities:
+      switch.refrigerator: off
+      switch.boiler: off
+      input_select.scene_status_dropdown:
+        option: Tom
+

@@ -1,0 +1,77 @@
+title: Fjellbu
+views:
+  - icon: mdi:home-assistant
+    theme: dark-mode
+    
+###################################
+####    Front page             ####
+###################################
+
+    title: Fjellbu
+    cards:
+      - type: entities
+        title: Velg scene
+        show_header_toggle: false
+        entities:
+          - input_select.scene_status_dropdown
+
+      - type: glance
+        title: Brytere
+        entities:
+          - switch.refrigerator
+          - switch.boiler
+
+      - type: picture-entity
+        entity: camera.meteogram 
+          
+      - type: entities
+        title: Sol
+        entities:
+          - sun.sun
+          
+###################################
+####        parametere         ####
+###################################
+  - icon: mdi:gauge
+    title: Parametere 
+    cards:
+      - type: entities
+        title: Strømforbruk
+        show_header_toggle: false
+        entities:
+          - sensor.boiler_energy
+          - sensor.refrigerator_energy
+#      - type: custom:entity-attributes-card
+#        title: Batteri
+#        heading_name: Enhet
+#        heading_state: "% Batteri"
+#        filter:
+#          include:
+#            - key: binary_sensor.1_hall_front_door_sensor.battery_level
+#              name: Sensor 1 Gang Utgangsdør
+#            - key: binary_sensor.1_hall_switch.battery_level
+#              name: Bryter 1 Gang
+#            - key: sensor.1_kitchen_refridgerator_temperature.battery_level
+#              name: Sensor 1 Kjøkken kjøleskap 
+#            - key: binary_sensor.1_livingroom_terrace_door.battery_level
+#              name: Sensor Terassedør
+#            - key: zwave.1_bathroom_sensor.battery_level
+#              name: Sensor 1 Bad 
+#            - key: sensor.1_washingroom_temperature.battery_level
+#              name: Sensor 1 Vaskerom 
+
+###################################
+####        Automasjoner       ####
+###################################
+  - icon: mdi:loop
+    title: Automasjoner 
+    cards:
+      - type: entities
+        title: Automasjoner
+        show_header_toggle: false
+        entities:
+          - automation.scene_selection_normal
+          - automation.scene_selection_tom
+
+
+

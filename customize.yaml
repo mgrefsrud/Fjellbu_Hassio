@@ -1,0 +1,50 @@
+switch.refrigerator:
+  icon: mdi:snowflake
+zwave.refrigerator:
+  friendly_name: Refrigerator
+sensor.refrigerator_alarm_level:
+  friendly_name: Refrigerator Alarm Level
+sensor.refrigerator_alarm_type:
+  friendly_name: Refrigerator Alarm Type
+sensor.refrigerator_energy:
+  friendly_name: Kjøleskap Energi
+  icon: mdi:gauge
+sensor.refrigerator_exporting:
+  friendly_name: Refrigerator Exporting
+sensor.refrigerator_power_2:
+  friendly_name: Refrigerator Power
+sensor.refrigerator_power:
+  friendly_name: Refrigerator Power
+sensor.refrigerator_power_management:
+  friendly_name: Refrigerator Power Management
+sensor.refrigerator_sourcenodeid:
+  friendly_name: Refrigerator SourceNodeId
+switch.boiler:
+  icon: mdi:water-percent
+zwave.Boiler:
+  friendly_name: Boiler
+sensor.boiler_alarm_level:
+  friendly_name: Boiler Alarm Level
+sensor.boiler_alarm_type:
+  friendly_name: Boiler Alarm Type
+sensor.boiler_energy:
+  friendly_name: Varmtvannsbereder Energi
+  icon: mdi:gauge
+sensor.boiler_exporting:
+  friendly_name: Boiler Exporting
+sensor.boiler_power_2:
+  friendly_name: Boiler Power
+sensor.boiler_power:
+  friendly_name: Boiler Power
+sensor.boiler_power_management:
+  friendly_name: Boiler Power Management
+sensor.boiler_sourcenodeid:
+  friendly_name: Boiler SourceNodeId
+scene.normal:
+  icon: mdi:home
+automation.scene_selection_normal:
+  icon: mdi:home
+scene.tom:
+  icon: mdi:home-outline
+automation.scene_selection_tom:
+  icon: mdi:home-outline
