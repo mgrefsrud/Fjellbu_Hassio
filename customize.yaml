@@ -40,11 +40,11 @@ sensor.boiler_power_management:
   friendly_name: Boiler Power Management
 sensor.boiler_sourcenodeid:
   friendly_name: Boiler SourceNodeId
-scene.normal:
+scene.tilstede:
   icon: mdi:home
-automation.scene_selection_normal:
+automation.scene_selection_tilstede:
   icon: mdi:home
-scene.tom:
+scene.borte:
   icon: mdi:home-outline
-automation.scene_selection_tom:
+automation.scene_selection_borte:
   icon: mdi:home-outline

@@ -1,12 +1,12 @@
 scene_status_dropdown:
   name: Aktiv scene
   options:
-    - Normal
-    - Tom
-  initial: Normal
+    - Tilstede
+    - Borte
+  initial: Tilstede
   icon: mdi:home
 #  icon_template: >
-#    {% if is_state('input_select.scene_status_dropdown', 'Normal') %}
+#    {% if is_state('input_select.scene_status_dropdown', 'Tilstede') %}
 #      mdi:home
 #    {% else %}
 #      mdi:home-outline

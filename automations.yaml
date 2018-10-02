@@ -1,17 +1,17 @@
-- alias: Scene selection Normal
+- alias: Scene selection Tilstede
   trigger:
     platform: state
     entity_id: input_select.scene_status_dropdown
-    to: "Normal"
+    to: "Tilstede"
   action:
   - service: scene.turn_on
-    entity_id: scene.normal
+    entity_id: scene.tilstede
 
-- alias: Scene selection Tom
+- alias: Scene selection Borte
   trigger:
     platform: state
     entity_id: input_select.scene_status_dropdown
-    to: "Tom"
+    to: "Borte"
   action:
   - service: scene.turn_on
-    entity_id: scene.tom
+    entity_id: scene.borte
