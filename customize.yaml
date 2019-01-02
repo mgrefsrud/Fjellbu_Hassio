@@ -14,7 +14,7 @@ sensor.refrigerator_exporting:
 sensor.refrigerator_power_2:
   friendly_name: Refrigerator Power
 sensor.refrigerator_power:
-  friendly_name: Refrigerator Power
+  friendly_name: Kjøleskap Effekt
 sensor.refrigerator_power_management:
   friendly_name: Refrigerator Power Management
 sensor.refrigerator_sourcenodeid:
@@ -35,16 +35,60 @@ sensor.boiler_exporting:
 sensor.boiler_power_2:
   friendly_name: Boiler Power
 sensor.boiler_power:
-  friendly_name: Boiler Power
+  friendly_name: Varmtvannsbereder Effekt
 sensor.boiler_power_management:
   friendly_name: Boiler Power Management
 sensor.boiler_sourcenodeid:
   friendly_name: Boiler SourceNodeId
-scene.tilstede:
+scene.normal:
   icon: mdi:home
-automation.scene_selection_tilstede:
+automation.scene_selection_normal:
   icon: mdi:home
-scene.borte:
+scene.tom:
   icon: mdi:home-outline
-automation.scene_selection_borte:
+automation.scene_selection_tom:
   icon: mdi:home-outline
+sensor.smoke_sensor_burglar:
+  friendly_name: Smoke Sensor Burglar
+zwave.smoke_sensor:
+  friendly_name: Smoke Sensor
+sensor.smoke_sensor_alarm_level:
+  friendly_name: Smoke Sensor Alarm Level
+sensor.smoke_sensor_alarm_type:
+  friendly_name: Smoke Sensor Alarm Type
+sensor.smoke_sensor_general:
+  friendly_name: Smoke Sensor General
+sensor.smoke_sensor_heat:
+  friendly_name: Smoke Sensor Heat
+sensor.smoke_sensor_heat_2:
+  friendly_name: Smoke Sensor Heat
+sensor.smoke_sensor_power_management:
+  friendly_name: Smoke Sensor Power Management
+binary_sensor.smoke_sensor_sensor:
+  friendly_name: Smoke Sensor Sensor
+sensor.smoke_sensor_smoke:
+  friendly_name: Smoke Sensor Smoke
+  icon: mdi:fire
+sensor.smoke_sensor_smoke_2:
+  friendly_name: Smoke Sensor Smoke
+sensor.smoke_sensor_sourcenodeid:
+  friendly_name: Smoke Sensor SourceNodeId
+sensor.smoke_sensor_system:
+  friendly_name: Smoke Sensor System
+switch.cable_heating_switch:
+  icon: mdi:water-percent
+switch.outdoor_lights_switch:
+  icon: mdi:lightbulb
+switch.cable_heating_well_switch:
+  icon: mdi:water-pump
+switch.cable_heating_toilet_switch:
+  icon: mdi:toilet
+sensor.cable_heating_toilet_energy:
+  icon: mdi:gauge
+sensor.cable_heating_well_energy:
+  icon: mdi:gauge
+binary_sensor.front_door_sensor:
+  device_class: door
+  icon: mdi:door
+sensor.smoke_alarm:
+  icon: mdi:fire

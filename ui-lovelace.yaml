@@ -1,67 +1,113 @@
 title: Fjellbu
 views:
-  - icon: mdi:home-assistant
+  - id: 0  # Automatically created id
+    icon: mdi:home-assistant
     theme: dark-mode
-    
+
 ###################################
 ####    Front page             ####
 ###################################
 
     title: Fjellbu
     cards:
-      - type: entities
+      - id: 144421d12c604c87b427f98598826f76  # Automatically created id
+        type: entities
         title: Velg scene
         show_header_toggle: false
         entities:
           - input_select.scene_status_dropdown
 
       - type: glance
+        id: 160fe5066c274928a63965b052968544  # Automatically created id
         title: Brytere
         entities:
-          - switch.refrigerator
-          - switch.boiler
+          - entity: switch.refrigerator
+          - entity: switch.boiler
+          - entity: switch.cable_heating_toilet_switch
+          - entity: switch.cable_heating_well_switch
+          - entity: switch.outdoor_lights_switch
+      - id: 7a9c34dceb354d1c86f041dce56bd4a2  # Automatically created id
+        type: glance
+        title: Sensorer
+        entities:
+          - binary_sensor.front_door_sensor
+          - sensor.smoke_sensor_temperature
+          - sensor.hall_thermostat_temperature
+          - sensor.livingroom_thermostat_temperature
+          - sensor.bedroom_thermostat_temperature
+          - sensor.cable_heating_well_temperature
+          - sensor.smoke_alarm
+      - id:
+        type: glance
+        title: Termostater
+        entities:
+          - climate.hall_thermostat_heating
+          - climate.livingroom_thermostat_heating
+          - climate.bedroom_thermostat_heating
 
-      - type: picture-entity
-        entity: camera.meteogram 
-          
-      - type: entities
+
+      - id: dddd026898b445e7a3abb74b297cc4cc  # Automatically created id
+        type: picture-entity
+        entity: camera.meteogram
+
+      - id: 258a2ff82a934a0b8cfdb78f957c56e3  # Automatically created id
+        type: entities
         title: Sol
         entities:
           - sun.sun
-          
+
 ###################################
 ####        parametere         ####
 ###################################
-  - icon: mdi:gauge
-    title: Parametere 
+  - id: 1  # Automatically created id
+    icon: mdi:gauge
+    title: Parametere
     cards:
-      - type: entities
+      - id: 42ab54f301524692a5785eeb388383ff  # Automatically created id
+        type: entities
         title: Strømforbruk
         show_header_toggle: false
         entities:
+          - sensor.livingroom_thermostat_energy
+          - sensor.hall_thermostat_energy
+          - sensor.bedroom_thermostat_energy
+          - sensor.boiler_power
           - sensor.boiler_energy
+          - sensor.refrigerator_power
           - sensor.refrigerator_energy
-#      - type: custom:entity-attributes-card
-#        title: Batteri
-#        heading_name: Enhet
-#        heading_state: "% Batteri"
-#        filter:
-#          include:
-#            - key: binary_sensor.1_hall_front_door_sensor.battery_level
-#              name: Sensor 1 Gang Utgangsdør
-
-###################################
-####        Automasjoner       ####
-###################################
-  - icon: mdi:loop
-    title: Automasjoner 
-    cards:
+          - sensor.cable_heating_toilet_power
+          - sensor.cable_heating_toilet_energy
+          - sensor.cable_heating_well_power
+          - sensor.cable_heating_well_energy
       - type: entities
+        id: bb61f5a2dc584727a9c9204be3c519c5  # Automatically created id
+        title: Røykvarsler
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.smoke_sensor_sensor
+          - entity: sensor.smoke_sensor_smoke
+          - entity: sensor.smoke_sensor_smoke_2
+          - entity: sensor.smoke_sensor_alarm_level
+          - entity: sensor.smoke_sensor_alarm_type
+          - entity: sensor.smoke_sensor_general
+          - entity: sensor.smoke_alarm
+  - id: 2  # Automatically created id
+    icon: mdi:loop
+    title: Automasjoner
+    cards:
+      - id: 2409e036024e4511a1639cd1a660c249  # Automatically created id
+        type: entities
         title: Automasjoner
         show_header_toggle: false
         entities:
           - automation.scene_selection_tilstede
           - automation.scene_selection_borte
+          - automation.turn_of_power_usage_if_smoke_is_detected
+          - automation.turn_of_power_usage_when_excessive_heat_detected
+          - automation.notify_if_door_is_openes_while_cabin_in_status_borte
+          - automation.set_theromstat_values_when_borte_scene_is_set
+          - automation.set_theromstat_values_when_tilstede_scene_is_set
+
 
 
 

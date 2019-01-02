@@ -2,6 +2,9 @@
     entities:
       switch.refrigerator: on
       switch.boiler: on
+      switch.outdoor_lights_switch: on
+      switch.cable_heating_toilet_switch: on
+      switch.cable_heating_well_switch: on
       input_select.scene_status_dropdown:
         option: Tilstede
 
@@ -9,6 +12,9 @@
     entities:
       switch.refrigerator: off
       switch.boiler: off
+      switch.outdoor_lights_switch: off
+      switch.cable_heating_toilet_switch: off
+      switch.cable_heating_well_switch: off
       input_select.scene_status_dropdown:
         option: Borte
 

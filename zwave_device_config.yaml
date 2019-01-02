@@ -1,0 +1,15 @@
+sensor.livingroom_thermostat_exporting:
+  ignored: true
+  polling_intensity: 0
+sensor.bedroom_thermostat_exporting:
+  ignored: true
+  polling_intensity: 0
+climate.bedroom_thermostat_energy_heat:
+  ignored: true
+  polling_intensity: 0
+sensor.hall_thermostat_exporting:
+  ignored: true
+  polling_intensity: 0
+climate.hall_thermostat_energy_heat:
+  ignored: true
+  polling_intensity: 0
