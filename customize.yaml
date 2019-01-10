@@ -71,6 +71,7 @@ sensor.smoke_sensor_smoke:
   icon: mdi:fire
 sensor.smoke_sensor_smoke_2:
   friendly_name: Smoke Sensor Smoke
+  icon: mdi:fire
 sensor.smoke_sensor_sourcenodeid:
   friendly_name: Smoke Sensor SourceNodeId
 sensor.smoke_sensor_system:

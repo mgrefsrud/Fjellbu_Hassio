@@ -18,6 +18,7 @@ frontend:
   javascript_version: latest
   extra_html_url:
     - /local/lovelace.html
+
 # Enables configuration UI
 config:
 
@@ -59,6 +60,7 @@ tts:
 
 # Cloud
 cloud:
+
 
 camera:
   - platform: generic

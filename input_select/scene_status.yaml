@@ -3,7 +3,7 @@ scene_status_dropdown:
   options:
     - Tilstede
     - Borte
-  initial: Tilstede
+  initial: Borte
   icon: mdi:home
 #  icon_template: >
 #    {% if is_state('input_select.scene_status_dropdown', 'Tilstede') %}

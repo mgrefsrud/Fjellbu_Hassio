@@ -19,22 +19,60 @@
 - alias: Turn of power usage if smoke is detected
   trigger:
     platform: state
-    entity_id: sensor.smoke_sensor_smoke
+    entity_id: sensor.smoke_sensor_smoke_2
     to: '255'
   action:
   - service: scene.turn_on
     entity_id: scene.borte
+
+- alias: Send message when smoke is detected
+  trigger:
+    platform: state
+    entity_id: sensor.smoke_sensor_smoke_2
+    to: '255'
+  action:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_select.scene_status_dropdown
+      state: 'Borte'   
+  - service: scene.turn_on
+    entity_id: scene.borte
+  - service: notify.ios_iphonetg
+    data:
+      message: Røykvasleren er utløst for røyk
+      data:
+          push:
+            badge: 5
 
 - alias: Turn of power usage when excessive heat detected
   trigger:
     platform: state
-    entity_id: sensor.smoke_sensor_heat
+    entity_id: sensor.smoke_sensor_heat_2
     to: '255'
   action:
   - service: scene.turn_on
     entity_id: scene.borte
 
-- alias: Notify if door is openes while cabin in status Borte
+- alias: Send message when excessive heat detected
+  trigger:
+    platform: state
+    entity_id: sensor.smoke_sensor_heat_2
+    to: '255'
+  action:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_select.scene_status_dropdown
+      state: 'Borte'   
+  - service: notify.ios_iphonetg
+    data:
+      message: Røykvasleren er utløst for varme
+      data:
+          push:
+            badge: 5
+
+- alias: Notify if door is opened while cabin in status Borte
   trigger:
     platform: state
     entity_id: binary_sensor.front_door_sensor
@@ -45,8 +83,13 @@
     - condition: state
       entity_id: input_select.scene_status_dropdown
       state: 'Borte'   
-  - service: scene.turn_on
-    entity_id: scene.tilstede
+  - service: notify.ios_iphonetg
+    data:
+      message: Døra på hytta ble åpnet 
+      data:
+          push:
+            badge: 5
+
 
 - alias: Set theromstat values when tilstede scene is set
   trigger:
