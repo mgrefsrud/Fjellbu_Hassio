@@ -36,8 +36,6 @@
     - condition: state
       entity_id: input_select.scene_status_dropdown
       state: 'Borte'   
-  - service: scene.turn_on
-    entity_id: scene.borte
   - service: notify.ios_iphonetg
     data:
       message: Røykvasleren er utløst for røyk
