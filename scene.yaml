@@ -5,8 +5,8 @@
       switch.outdoor_lights_switch: on
       switch.cable_heating_toilet_switch: on
       switch.cable_heating_well_switch: on
-      input_select.scene_status_dropdown:
-        option: Tilstede
+#      input_select.scene_status_dropdown:
+#        option: Tilstede
 
   - name: Borte
     entities:
@@ -15,6 +15,6 @@
       switch.outdoor_lights_switch: off
       switch.cable_heating_toilet_switch: off
       switch.cable_heating_well_switch: off
-      input_select.scene_status_dropdown:
-        option: Borte
+#      input_select.scene_status_dropdown:
+#        option: Borte
 

@@ -62,11 +62,11 @@ tts:
 cloud:
 
 
-camera:
-  - platform: generic
-    name: Meteogram
-    still_image_url: https://www.yr.no/place/Norway/Buskerud/Nes/Fj%C3%B8laset/meteogram.svg
-    content_type: 'image/svg+xml'
+#camera:
+#  - platform: generic
+#    name: Meteogram
+#    still_image_url: https://www.yr.no/place/Norway/Buskerud/Nes/Fj%C3%B8laset/meteogram.svg
+#    content_type: 'image/svg+xml'
 
 group: !include groups.yaml
 automation: !include automations.yaml

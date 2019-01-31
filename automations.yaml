@@ -98,16 +98,16 @@
   - service: climate.set_temperature
     data:
       entity_id: climate.bedroom_thermostat_heating
-      temperature: 16
+      temperature: 18
   - service: climate.set_temperature
     data:
       entity_id: climate.hall_thermostat_heating
-      temperature: 18
+      temperature: 22
       operation_mode: Heat
   - service: climate.set_temperature
     data:
       entity_id: climate.livingroom_thermostat_heating
-      temperature: 20
+      temperature: 22
       operation_mode: Heat
 
 - alias: Set theromstat values when borte scene is set
@@ -119,14 +119,52 @@
   - service: climate.set_temperature
     data:
       entity_id: climate.bedroom_thermostat_heating
-      temperature: 11
+      temperature: 14
   - service: climate.set_temperature
     data:
       entity_id: climate.hall_thermostat_heating
-      temperature: 11
+      temperature: 14
       operation_mode: Heat
   - service: climate.set_temperature
     data:
       entity_id: climate.livingroom_thermostat_heating
-      temperature: 11
+      temperature: 14
       operation_mode: Heat
+
+- alias: Turn on cable heating well morning
+  trigger:
+    platform: time
+    at: '07:00:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: 
+        - switch.cable_heating_well_switch    
+
+- alias: Turn off cable heating well morning
+  trigger:
+    platform: time
+    at: '09:00:00'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: 
+        - switch.cable_heating_well_switch    
+
+- alias: Turn on cable heating well evening
+  trigger:
+    platform: time
+    at: '19:00:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: 
+        - switch.cable_heating_well_switch    
+
+- alias: Turn off cable heating well evening
+  trigger:
+    platform: time
+    at: '21:00:00'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: 
+        - switch.cable_heating_well_switch    
+
+

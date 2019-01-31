@@ -14,3 +14,17 @@
         {% endif %} 
 
 - platform: yr
+
+#uptime sensor
+- platform: uptime
+  name: Time Online
+  unit_of_measurement: hours
+
+#System monitor sensors  
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: processor_use
+  
