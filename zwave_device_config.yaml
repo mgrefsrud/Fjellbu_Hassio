@@ -13,3 +13,18 @@ sensor.hall_thermostat_exporting:
 climate.hall_thermostat_energy_heat:
   ignored: true
   polling_intensity: 0
+sensor.cable_heating_well_energy:
+  ignored: false
+  polling_intensity: 1
+sensor.bedroom_thermostat_energy:
+  ignored: false
+  polling_intensity: 1
+sensor.aeotec_zw100_multisensor_6_alarm_type:
+  ignored: true
+  polling_intensity: 0
+sensor.aeotec_zw100_multisensor_6_alarm_level:
+  ignored: false
+  polling_intensity: 0
+sensor.aeotec_zw100_multisensor_6_sourcenodeid:
+  ignored: true
+  polling_intensity: 0

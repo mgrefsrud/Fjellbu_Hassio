@@ -22,6 +22,17 @@ frontend:
 # Enables configuration UI
 config:
 
+system_health:
+
+panel_iframe:
+  ide:
+    title: IDE
+    icon: mdi:code-braces
+    url: !secret ide_url
+    
+recorder:
+  purge_keep_days: 7
+  
 http:
   base_url: !secret ha_url
   

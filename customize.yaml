@@ -93,3 +93,14 @@ binary_sensor.front_door_sensor:
   icon: mdi:door
 sensor.smoke_alarm:
   icon: mdi:fire
+switch.livingroom_heater:
+  icon: mdi:radiator
+sensor.outdoor_relative_humidity:
+  friendly_name: Ute 2
+  icon: mdi:water-percent
+sensor.outdoor_temperature:
+  friendly_name: Ute 2
+sensor.outdoor_sensor_relative_humidity:
+  icon: mdi:water-percent
+sensor.livingroom_relative_humidity:
+  icon: mdi:water-percent
