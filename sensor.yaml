@@ -27,4 +27,12 @@
       arg: /home
     - type: memory_free
     - type: processor_use
-  
+
+#####zigbee2mqtt#######
+- platform: mqtt
+  name: Bridge state
+  state_topic: "zigbee2mqtt/bridge/state"
+  icon: mdi:router-wireless
+
+####Ipadresse####
+- platform: dnsip

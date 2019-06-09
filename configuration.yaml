@@ -1,16 +1,10 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Fjellbu
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret latitude
-  longitude: !secret longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 0
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/Oslo
-  # Customization file
+#  name: Fjellbu
+#  latitude: !secret latitude
+#  longitude: !secret longitude
+#  elevation: 948
+#  unit_system: metric
+#  time_zone: Europe/Oslo
   customize: !include customize.yaml
 
 # Enables the frontend
@@ -19,12 +13,15 @@ frontend:
   extra_html_url:
     - /local/lovelace.html
 
-# Enables configuration UI
 config:
-
 system_health:
+zigbee2mqtt_networkmap:
 
 panel_iframe:
+  networkmap:
+    title: 'Zigbee Map'
+    url: '/local/zigbee2mqtt_networkmap/map.html'
+    icon: 'mdi:graphql'    
 
 recorder:
   purge_keep_days: 7
@@ -33,24 +30,11 @@ http:
   base_url: !secret ha_url
   
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-
-# Discover some devices automatically
 discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
-
-# Enables support for tracking state changes over time
 history:
-
-# View all events in a logbook
 logbook:
-
-# Enables a map showing the location of tracked devices
 map:
-
-# Track the sun
 sun:
 
 # Zwave 
@@ -63,7 +47,8 @@ zwave:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 # Cloud
 cloud:
@@ -81,3 +66,5 @@ script: !include scripts.yaml
 input_select: !include_dir_merge_named input_select
 scene: !include scene.yaml
 sensor: !include sensor.yaml
+timer: !include timer.yaml
+input_boolean: !include input_boolean.yaml

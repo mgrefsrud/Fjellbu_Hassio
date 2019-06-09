@@ -1,20 +1,20 @@
   - name: Tilstede
     entities:
-      switch.refrigerator: on
-      switch.livingroom_heater: on
+#      switch.refrigerator: on
+#      switch.livingroom_heater: on
       switch.outdoor_lights_switch: on
-      switch.cable_heating_toilet_switch: on
-      switch.cable_heating_well_switch: on
+#      switch.cable_heating_toilet_switch: on
+#      switch.cable_heating_well_switch: on
 #      input_select.scene_status_dropdown:
 #        option: Tilstede
 
   - name: Borte
     entities:
-      switch.refrigerator: off
-      switch.livingroom_heater: off
+#      switch.refrigerator: off
+#      switch.livingroom_heater: off
       switch.outdoor_lights_switch: off
-      switch.cable_heating_toilet_switch: off
-      switch.cable_heating_well_switch: off
+#      switch.cable_heating_toilet_switch: off
+#      switch.cable_heating_well_switch: off
 #      input_select.scene_status_dropdown:
 #        option: Borte
 

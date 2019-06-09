@@ -104,3 +104,5 @@ sensor.outdoor_sensor_relative_humidity:
   icon: mdi:water-percent
 sensor.livingroom_relative_humidity:
   icon: mdi:water-percent
+switch.toilet_heater:
+  icon: mdi:radiator
