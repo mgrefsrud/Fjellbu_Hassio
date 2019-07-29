@@ -106,3 +106,4 @@ sensor.livingroom_relative_humidity:
   icon: mdi:water-percent
 switch.toilet_heater:
   icon: mdi:radiator
+sensor.toalett_temperature: {}

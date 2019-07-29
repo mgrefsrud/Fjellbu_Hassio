@@ -13,6 +13,7 @@
 #      switch.refrigerator: off
 #      switch.livingroom_heater: off
       switch.outdoor_lights_switch: off
+      switch.toilet_heater: off
 #      switch.cable_heating_toilet_switch: off
 #      switch.cable_heating_well_switch: off
 #      input_select.scene_status_dropdown:

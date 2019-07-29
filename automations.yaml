@@ -99,16 +99,17 @@
     data:
       entity_id: climate.bedroom_thermostat_heating
       temperature: 15
+      hvac_mode: heat
   - service: climate.set_temperature
     data:
       entity_id: climate.hall_thermostat_heating
       temperature: 23
-      operation_mode: Heat
+      hvac_mode: heat
   - service: climate.set_temperature
     data:
       entity_id: climate.livingroom_thermostat_heating
       temperature: 23
-      operation_mode: Heat
+      hvac_mode: heat
 
 - alias: Set theromstat values when borte scene is set
   trigger:
@@ -120,16 +121,17 @@
     data:
       entity_id: climate.bedroom_thermostat_heating
       temperature: 11
+      hvac_mode: heat
   - service: climate.set_temperature
     data:
       entity_id: climate.hall_thermostat_heating
       temperature: 11
-      operation_mode: Heat
+      hvac_mode: heat
   - service: climate.set_temperature
     data:
       entity_id: climate.livingroom_thermostat_heating
       temperature: 11
-      operation_mode: Heat
+      hvac_mode: heat
 
 - alias: Turn on cable heating well morning
   trigger:
@@ -166,6 +168,16 @@
     - service: homeassistant.turn_off
       entity_id: 
         - switch.cable_heating_well_switch    
+
+- alias: Turn on toilett heating under 8
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.toalett_temperature
+    below: '8'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: 
+        - switch.toilet_heater   
 
 
 ######zigbee2mqtt#####

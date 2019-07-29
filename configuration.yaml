@@ -36,10 +36,11 @@ history:
 logbook:
 map:
 sun:
+apple_tv: 
 
 # Zwave 
 zwave:
-  usb_path: /dev/ttyACM0
+  usb_path: /dev/ttyACM1
   
 # Weather prediction
 #sensor:
