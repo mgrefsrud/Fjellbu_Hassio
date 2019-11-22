@@ -1,4 +1,5 @@
-- alias: Scene selection Tilstede
+- id: Scene_selection_Tilstede
+  alias: Scene selection Tilstede
   trigger:
     platform: state
     entity_id: input_select.scene_status_dropdown
@@ -7,7 +8,8 @@
   - service: scene.turn_on
     entity_id: scene.tilstede
 
-- alias: Scene selection Borte
+- id: Scene_selection_Borte
+  alias: Scene selection Borte
   trigger:
     platform: state
     entity_id: input_select.scene_status_dropdown
@@ -16,7 +18,8 @@
   - service: scene.turn_on
     entity_id: scene.borte
 
-- alias: Turn of power usage if smoke is detected
+- id: Turn_of_power_usage_if_smoke_is_detected
+  alias: Turn of power usage if smoke is detected
   trigger:
     platform: state
     entity_id: sensor.smoke_sensor_smoke_2
@@ -25,7 +28,8 @@
   - service: scene.turn_on
     entity_id: scene.borte
 
-- alias: Send message when smoke is detected
+- id: Send_message_when_smoke_is_detected
+  alias: Send message when smoke is detected
   trigger:
     platform: state
     entity_id: sensor.smoke_sensor_smoke_2
@@ -43,7 +47,8 @@
           push:
             badge: 5
 
-- alias: Turn of power usage when excessive heat detected
+- id: Turn_of_power_usage_when_excessive_heat_detected
+  alias: Turn of power usage when excessive heat detected
   trigger:
     platform: state
     entity_id: sensor.smoke_sensor_heat_2
@@ -52,7 +57,8 @@
   - service: scene.turn_on
     entity_id: scene.borte
 
-- alias: Send message when excessive heat detected
+- id: Send_message_when_excessive_heat_detected
+  alias: Send message when excessive heat detected
   trigger:
     platform: state
     entity_id: sensor.smoke_sensor_heat_2
@@ -70,7 +76,8 @@
           push:
             badge: 5
 
-- alias: Notify if door is opened while cabin in status Borte
+- id: Notify_if_door_is_opened_while_cabin_in_status_Borte
+  alias: Notify if door is opened while cabin in status Borte
   trigger:
     platform: state
     entity_id: binary_sensor.front_door_sensor
@@ -89,7 +96,8 @@
             badge: 5
 
 
-- alias: Set theromstat values when tilstede scene is set
+- id: Set_theromstat_values_when_tilstede_scene_is_set
+  alias: Set theromstat values when tilstede scene is set
   trigger:
     platform: state
     entity_id: input_select.scene_status_dropdown
@@ -111,7 +119,8 @@
       temperature: 23
       hvac_mode: heat
 
-- alias: Set theromstat values when borte scene is set
+- id: Set_theromstat_values_when_borte_scene_is_set
+  alias: Set theromstat values when borte scene is set
   trigger:
     platform: state
     entity_id: input_select.scene_status_dropdown
@@ -133,7 +142,8 @@
       temperature: 11
       hvac_mode: heat
 
-- alias: Turn on cable heating well morning
+- id: Turn_on_cable_heating_well_morning
+  alias: Turn on cable heating well morning
   trigger:
     platform: time
     at: '07:00:00'
@@ -142,7 +152,8 @@
       entity_id: 
         - switch.cable_heating_well_switch    
 
-- alias: Turn off cable heating well morning
+- id: Turn_off_cable_heating_well_morning
+  alias: Turn off cable heating well morning
   trigger:
     platform: time
     at: '09:00:00'
@@ -151,7 +162,8 @@
       entity_id: 
         - switch.cable_heating_well_switch    
 
-- alias: Turn on cable heating well evening
+- id: Turn_on_cable_heating_well_evening
+  alias: Turn on cable heating well evening
   trigger:
     platform: time
     at: '19:00:00'
@@ -160,7 +172,8 @@
       entity_id: 
         - switch.cable_heating_well_switch    
 
-- alias: Turn off cable heating well evening
+- id: Turn_off_cable_heating_well_evening
+  alias: Turn off cable heating well evening
   trigger:
     platform: time
     at: '21:00:00'
@@ -169,7 +182,8 @@
       entity_id: 
         - switch.cable_heating_well_switch    
 
-- alias: Turn on toilett heating under 8
+- id: Turn_on_toilett_heating_under_8
+  alias: Turn on toilett heating under 8
   trigger:
     platform: numeric_state
     entity_id: sensor.toalett_temperature
@@ -212,6 +226,7 @@
       entity_id: timer.zigbee_permit_join
     service: timer.cancel
   hide_entity: true
+  
 - id: disable_zigbee_join_timer
   alias: Disable Zigbee joining by timer
   hide_entity: true

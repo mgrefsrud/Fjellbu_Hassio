@@ -10,8 +10,7 @@
     "password": "hassio"
   },
   "serial": {
-    "port": "/dev/ttyACM0",
-    "disable_led": true
+    "port": "/dev/ttyACM0"
   },
   "advanced": {
     "pan_id": 6754,
@@ -33,6 +32,10 @@
       10,
       12,
       13
-    ]
-  }
+    ],
+    "availability_blacklist": []
+  },
+  "ban": [],
+  "whitelist": [],
+  "queue": {}
 }
