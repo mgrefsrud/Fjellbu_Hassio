@@ -5,12 +5,13 @@
   "permit_join": false,
   "mqtt": {
     "base_topic": "zigbee2mqtt",
-    "server": "mqtt://homeassistant",
-    "user": "hassio",
-    "password": "hassio"
+    "server": "mqtt://core-mosquitto",
+    "user": "mqtt",
+    "password": "fjellbu423"
   },
   "serial": {
-    "port": "/dev/ttyACM0"
+    "port": "/dev/ttyACM0",
+    "disable_led": true
   },
   "advanced": {
     "pan_id": 6754,

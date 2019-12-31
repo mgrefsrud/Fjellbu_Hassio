@@ -7,3 +7,13 @@
 '0x00158d0002fb487f':
   friendly_name: Stue
   retain: false
+'0x00158d000423d3d9':
+  friendly_name: Lite sov
+  retain: false
+'0x00158d000423d42d':
+  friendly_name: Soverom
+  retain: false
+'0x00158d00044a14cc':
+  friendly_name: Kjeller
+'0x00158d00044d9043':
+  friendly_name: Trykkknapp

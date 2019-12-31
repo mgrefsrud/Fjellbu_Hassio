@@ -1,107 +1,97 @@
 - id: Scene_selection_Tilstede
-  alias: Scene selection Tilstede
+  alias: Scene valg Tilstede
   trigger:
+  - entity_id: input_select.scene_status_dropdown
     platform: state
-    entity_id: input_select.scene_status_dropdown
-    to: "Tilstede"
+    to: Tilstede
   action:
-  - service: scene.turn_on
-    entity_id: scene.tilstede
-
+  - scene: scene.tilstede
 - id: Scene_selection_Borte
-  alias: Scene selection Borte
+  alias: Scene valg Borte
   trigger:
+  - entity_id: input_select.scene_status_dropdown
     platform: state
-    entity_id: input_select.scene_status_dropdown
-    to: "Borte"
+    to: Borte
   action:
-  - service: scene.turn_on
-    entity_id: scene.borte
-
+  - scene: scene.borte
 - id: Turn_of_power_usage_if_smoke_is_detected
-  alias: Turn of power usage if smoke is detected
+  alias: Turn off power usage if smoke is detected
   trigger:
+  - entity_id: sensor.smoke_sensor_smoke_2
     platform: state
-    entity_id: sensor.smoke_sensor_smoke_2
     to: '255'
   action:
-  - service: scene.turn_on
-    entity_id: scene.borte
-
+  - entity_id: scene.borte
+    service: scene.turn_on
 - id: Send_message_when_smoke_is_detected
-  alias: Send message when smoke is detected
+  alias: Varsle hvis røyk
   trigger:
+  - entity_id: sensor.smoke_sensor_smoke_2
     platform: state
-    entity_id: sensor.smoke_sensor_smoke_2
     to: '255'
   action:
   - condition: and
     conditions:
     - condition: state
       entity_id: input_select.scene_status_dropdown
-      state: 'Borte'   
-  - service: notify.ios_iphonetg
-    data:
+      state: Borte
+  - data:
+      data:
+        push:
+          badge: 5
       message: Røykvasleren er utløst for røyk
-      data:
-          push:
-            badge: 5
-
+    service: notify.mobile_app_iphonetg
 - id: Turn_of_power_usage_when_excessive_heat_detected
-  alias: Turn of power usage when excessive heat detected
+  alias: Turn off power usage when excessive heat detected
   trigger:
+  - entity_id: sensor.smoke_sensor_heat_2
     platform: state
-    entity_id: sensor.smoke_sensor_heat_2
     to: '255'
   action:
-  - service: scene.turn_on
-    entity_id: scene.borte
-
+  - entity_id: scene.borte
+    service: scene.turn_on
 - id: Send_message_when_excessive_heat_detected
-  alias: Send message when excessive heat detected
+  alias: Varsle hvis ekstrem varme
   trigger:
+  - entity_id: sensor.smoke_sensor_heat_2
     platform: state
-    entity_id: sensor.smoke_sensor_heat_2
     to: '255'
   action:
   - condition: and
     conditions:
     - condition: state
       entity_id: input_select.scene_status_dropdown
-      state: 'Borte'   
-  - service: notify.ios_iphonetg
-    data:
-      message: Røykvasleren er utløst for varme
+      state: Borte
+  - data:
       data:
-          push:
-            badge: 5
-
+        push:
+          badge: 5
+      message: Røykvasleren er utløst for varme
+    service: notify.mobile_app_iphonetg
 - id: Notify_if_door_is_opened_while_cabin_in_status_Borte
-  alias: Notify if door is opened while cabin in status Borte
+  alias: Varsle hvis dør åpnet og Borte
   trigger:
+  - entity_id: binary_sensor.front_door_sensor
     platform: state
-    entity_id: binary_sensor.front_door_sensor
     to: 'on'
   action:
   - condition: and
     conditions:
     - condition: state
       entity_id: input_select.scene_status_dropdown
-      state: 'Borte'   
-  - service: notify.ios_iphonetg
-    data:
-      message: Døra på hytta ble åpnet 
+      state: Borte
+  - data:
       data:
-          push:
-            badge: 5
-
-
+        push:
+          badge: 5
+      message: Døra på hytta ble åpnet
+    service: notify.mobile_app_iphonetg
 - id: Set_theromstat_values_when_tilstede_scene_is_set
   alias: Set theromstat values when tilstede scene is set
   trigger:
     platform: state
     entity_id: input_select.scene_status_dropdown
-    to: "Tilstede"
+    to: Tilstede
   action:
   - service: climate.set_temperature
     data:
@@ -118,13 +108,12 @@
       entity_id: climate.livingroom_thermostat_heating
       temperature: 23
       hvac_mode: heat
-
 - id: Set_theromstat_values_when_borte_scene_is_set
   alias: Set theromstat values when borte scene is set
   trigger:
     platform: state
     entity_id: input_select.scene_status_dropdown
-    to: "Borte"
+    to: Borte
   action:
   - service: climate.set_temperature
     data:
@@ -141,60 +130,57 @@
       entity_id: climate.livingroom_thermostat_heating
       temperature: 11
       hvac_mode: heat
-
 - id: Turn_on_cable_heating_well_morning
-  alias: Turn on cable heating well morning
+  alias: Brønn varmekabel PÅ om morgenen
   trigger:
+  - at: 07:00:00
     platform: time
-    at: '07:00:00'
   action:
-    - service: homeassistant.turn_on
-      entity_id: 
-        - switch.cable_heating_well_switch    
-
+  - device_id: 91a6f71993464d8fbe3c8b60288d6e39
+    domain: switch
+    entity_id: switch.cable_heating_well_switch
+    type: turn_on
 - id: Turn_off_cable_heating_well_morning
-  alias: Turn off cable heating well morning
+  alias: Brønn varmekabel AV om morgenen
   trigger:
+  - at: 09:00:00
     platform: time
-    at: '09:00:00'
   action:
-    - service: homeassistant.turn_off
-      entity_id: 
-        - switch.cable_heating_well_switch    
-
+  - device_id: 91a6f71993464d8fbe3c8b60288d6e39
+    domain: switch
+    entity_id: switch.cable_heating_well_switch
+    type: turn_off
 - id: Turn_on_cable_heating_well_evening
-  alias: Turn on cable heating well evening
+  alias: Brønn varmekabel PÅ om kvelden
   trigger:
+  - at: '19:00:00'
     platform: time
-    at: '19:00:00'
   action:
-    - service: homeassistant.turn_on
-      entity_id: 
-        - switch.cable_heating_well_switch    
-
+  - device_id: 91a6f71993464d8fbe3c8b60288d6e39
+    domain: switch
+    entity_id: switch.cable_heating_well_switch
+    type: turn_on
 - id: Turn_off_cable_heating_well_evening
-  alias: Turn off cable heating well evening
+  alias: Brønn varmekabel AV om kvelden
   trigger:
+  - at: '21:00:00'
     platform: time
-    at: '21:00:00'
   action:
-    - service: homeassistant.turn_off
-      entity_id: 
-        - switch.cable_heating_well_switch    
-
+  - device_id: 91a6f71993464d8fbe3c8b60288d6e39
+    domain: switch
+    entity_id: switch.cable_heating_well_switch
+    type: turn_off
 - id: Turn_on_toilett_heating_under_8
-  alias: Turn on toilett heating under 8
+  alias: Toalettovn PÅ <8°
   trigger:
-    platform: numeric_state
+  - below: '8'
     entity_id: sensor.toalett_temperature
-    below: '8'
+    platform: numeric_state
   action:
-    - service: homeassistant.turn_on
-      entity_id: 
-        - switch.toilet_heater   
-
-
-######zigbee2mqtt#####
+  - device_id: bc4b5a532e5d45b5b371f5fd45fd6c78
+    domain: switch
+    entity_id: switch.toilet_heater
+    type: turn_on
 - id: zigbee_enable_join
   alias: Enable Zigbee joining
   hide_entity: true
@@ -210,7 +196,6 @@
   - service: timer.start
     data:
       entity_id: timer.zigbee_permit_join
-      
 - id: zigbee_disable_join
   alias: Disable Zigbee joining
   trigger:
@@ -226,7 +211,6 @@
       entity_id: timer.zigbee_permit_join
     service: timer.cancel
   hide_entity: true
-  
 - id: disable_zigbee_join_timer
   alias: Disable Zigbee joining by timer
   hide_entity: true
@@ -243,13 +227,103 @@
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.zigbee_permit_join
-
 - id: zigbee_update_networkmap
-  alias: 'oppdater Zigbee Map '  
-  hide_entity: true  
+  alias: 'Oppdater Zigbee Map '
   trigger:
+  - minutes: /10
     platform: time_pattern
-    minutes: '/10'
-    seconds: 00
+    seconds: '0'
   action:
-    service: zigbee2mqtt_networkmap.update
+  - service: zigbee2mqtt_networkmap.update
+  hide_entity: true
+- id: '1572622724037'
+  alias: Toalettovn AV >12° hvis Borte
+  description: ''
+  trigger:
+  - above: '12'
+    entity_id: sensor.toalett_temperature
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: input_select.scene_status_dropdown
+    state: Borte
+  action:
+  - device_id: bc4b5a532e5d45b5b371f5fd45fd6c78
+    domain: switch
+    entity_id: switch.toilet_heater
+    type: turn_off
+- id: '1574712715885'
+  alias: Stueovn PÅ <6°
+  description: ''
+  trigger:
+  - below: '6'
+    entity_id: sensor.stue_temperature
+    platform: numeric_state
+  condition: []
+  action:
+  - device_id: f4bec3bae12a4b22b9da98a7e7d3b7e9
+    domain: switch
+    entity_id: switch.livingroom_heater
+    type: turn_on
+- id: '1574714530168'
+  alias: Stueovn AV >8° hvis Borte
+  description: ''
+  trigger:
+  - above: '8'
+    entity_id: sensor.stue_temperature
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: input_select.scene_status_dropdown
+    state: Borte
+  action:
+  - device_id: f4bec3bae12a4b22b9da98a7e7d3b7e9
+    domain: switch
+    entity_id: switch.livingroom_heater
+    type: turn_off
+- id: '1574714960106'
+  alias: Toalett vannrør varmekabel PÅ kjeller <1°
+  description: ''
+  trigger:
+  - below: '1'
+    entity_id: sensor.cable_heating_well_temperature
+    platform: numeric_state
+  condition: []
+  action:
+  - device_id: 2960530a80ff43ed952dabc61563666c
+    domain: switch
+    entity_id: switch.cable_heating_toilet_switch
+    type: turn_on
+- id: '1574715071068'
+  alias: Toalett vannrør varmekabel AV kjeller <2°
+  description: ''
+  trigger:
+  - above: '2'
+    entity_id: sensor.cable_heating_well_temperature
+    platform: numeric_state
+  condition: []
+  action:
+  - device_id: 2960530a80ff43ed952dabc61563666c
+    domain: switch
+    entity_id: switch.cable_heating_toilet_switch
+    type: turn_off
+- id: '1577564149133'
+  alias: Velg Tilstede ved enkelt klikk
+  description: ''
+  trigger:
+  - entity_id: sensor.button_click
+    platform: state
+    to: single
+  condition: []
+  action:
+  - scene: scene.tilstede
+- id: '1577566561838'
+  alias: Velg Borte ved dobbelt klikk
+  description: ''
+  trigger:
+  - entity_id: sensor.button_click
+    platform: state
+    to: double
+  condition: []
+  action:
+  - scene: scene.borte

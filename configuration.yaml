@@ -36,7 +36,8 @@ history:
 logbook:
 map:
 sun:
-apple_tv: 
+mobile_app:
+#apple_tv: 
 
 # Zwave 
 zwave:
